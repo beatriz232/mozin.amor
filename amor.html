@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para Minha Namorada</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #000000, #000000);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      overflow: auto;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    .tempo-amor {
+      margin: 30px auto;
+    }
+
+    .tempo-amor h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: bold;
+      text-shadow: 0 0 8px #fff;
+    }
+
+    .unidades {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .unidade {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px 20px;
+      border-radius: 10px;
+      min-width: 80px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .unidade span {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .unidade label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 5px;
+      display: block;
+    }
+
+    p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 20px auto;
+      line-height: 1.6;
+      text-shadow: 0 0 8px #fff;
+    }
+
+    audio {
+      display: none;
+      /* Oculta o player */
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #fff;
+      color: #e91e63;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffe6ec;
+    }
+
+    #surpresa {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.2rem;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .heart {
+      position: fixed;
+      top: -30px;
+      width: 20px;
+      height: 20px;
+      background-color: #e91e63;
+      left: 50%;
+      animation: fall linear infinite;
+      transform: rotate(45deg);
+      z-index: 1000;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #e91e63;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(45deg);
+      }
+    }
+
+    .slideshow-container {
+      max-width: 300px;
+      margin: 30px auto;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.6);
+    }
+
+    .extras {
+      margin-top: 50px;
+    }
+
+    .extras h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .extras img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      margin-bottom: 10px;
+    }
+
+    .extras p {
+      font-size: 1.1rem;
+      max-width: 400px;
+      margin: 0 auto 30px auto;
+      line-height: 1.4;
+      text-shadow: 0 0 6px #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Para Minha Namorada ❤️</h1>
+
+  <div class="tempo-amor">
+    <h2>Eu te amo há:</h2>
+    <div class="unidades">
+      <div class="unidade">
+        <span id="meses">0</span>
+        <label>Meses</label>
+      </div>
+      <div class="unidade">
+        <span id="dias">0</span>
+        <label>Dias</label>
+      </div>
+      <div class="unidade">
+        <span id="horas">0</span>
+        <label>Horas</label>
+      </div>
+      <div class="unidade">
+        <span id="minutos">0</span>
+        <label>Minutos</label>
+      </div>
+      <div class="unidade">
+        <span id="segundos">0</span>
+        <label>Segundos</label>
+      </div>
+    </div>
+  </div>
+
+  <h2> Nossa história ainda está começando, mas cada dia é especial💖.</h2>
+
+  <audio autoplay loop>
+    <source src="/Djavan - Um Amor Puro (Áudio Oficial).mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="slideshow-container">
+    <div class="slide"><img src="foto.jpg" alt="Foto 1" /></div>
+    <div class="slide"><img src="foto2.jpg" alt="Foto 2" /></div>
+    <div class="slide"><img src="foto3.jpg" alt="Foto 3" /></div>
+  </div>
+
+  <p>
+    Você é a luz que ilumina meus dias, a razão do meu sorriso e o motivo de
+    toda a minha felicidade. Obrigado por existir e por ser essa pessoa tão
+    especial na minha vida. Eu te amo meu amor💖
+  </p>
+
+  <button onclick="mostrarSurpresa()">Clique aqui ❤️</button>
+
+  <div id="surpresa">
+    Meu amor,
+    Você tem ideia do quanto mudou minha vida desde que chegou?
+    É como se tudo tivesse feito sentido de repente.
+    Seu riso virou meu som favorito, seu abraço, meu lugar preferido. Seu jeitinho de falar comigo, de cuidar de mim, de
+    me olhar... virou tudo o que eu preciso pra estar bem.
+    Tem dias que eu paro e penso:
+    “Caramba... será mesmo que tudo isso é real?" Porque meu amor, isso é tão novo pra mim, nunca ninguém me amou da
+    forma que você me ama, que você cuida de mim.
+    O que eu sinto por você amor, é um amor tão sincero, tão intenso e verdadeiro, nunca amor, vou fazer você ficar com
+    dúvidas do que sinto por você.
+    Não existe palavras suficientes para descrever o quanto eu amo você, por isso que tudo se resume na frase: EU TE
+    AMO.
+    Agora a minha vida tem uma nova história, um novo capítulo que é ao seu lado e meu amor, pode ter certeza que a
+    nossa história tem começo, meio e nunca terá um fim.
+    A cada dia que passa, eu vou te amando cada vez mais e é com você, ao seu lado que eu quero passar o resto da minha
+    vida🌟<br />
+    Eu te amo meu amor ❤️
+    Eu te amo mil milhões ❤️ 💖
+  </div>
+
+  <div class="extras">
+    <h2>✨ O nosso signo é:</h2>
+    <img src="/aries.jpg" alt="Signo do dia - Áries" />
+    <p>Nossa historia nasceu sob o signo de Áries, trazendo consigo as energias de coragem, energia e espontneidade.</p>
+  </div>
+
+  <h2>🌙 Naquela noite, a nossa lua estava:</h2>
+  <img src="/lua.jpg" alt="Fase da Lua - Lua Cheia" />
+  <p>A lua cheia que brilhou no céu naquele dia é a mesma que ilumina nosso amor até hoje.</p>
+  </div>
+
+  <div class="extras">
+    <h2>✨ Nossa história começou no dia: </h2>
+    <img src="/outono2003-scaled.jpg" alt="nossa estação do dia - outono" />
+    <p>Outono</p>
+    <p>Entre folhas douradas e tardes amenas, nossa história começou a florescer</p>
+  </div>
+
+  <script>
+    function mostrarSurpresa() {
+      document.getElementById("surpresa").style.display = "block";
+    }
+
+    function atualizarContador() {
+      const inicio = new Date(2025, 3, 7);
+      const agora = new Date();
+
+      const totalMeses =
+        (agora.getFullYear() - inicio.getFullYear()) * 12 +
+        (agora.getMonth() - inicio.getMonth());
+
+      const temp = new Date(inicio.getTime());
+      temp.setMonth(inicio.getMonth() + totalMeses);
+
+      const diffResto = agora - temp;
+      const dias = Math.floor(diffResto / (1000 * 60 * 60 * 24));
+      const horas = Math.floor(diffResto / (1000 * 60 * 60)) % 24;
+      const minutos = Math.floor(diffResto / (1000 * 60)) % 60;
+      const segundos = Math.floor(diffResto / 1000) % 60;
+
+      document.getElementById("meses").innerText = totalMeses;
+      document.getElementById("dias").innerText = dias;
+      document.getElementById("horas").innerText = horas;
+      document.getElementById("minutos").innerText = minutos;
+      document.getElementById("segundos").innerText = segundos;
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+      heart.style.opacity = Math.random();
+      heart.style.transform = "rotate(45deg)";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+
+    let slideIndex = 0;
+
+    function showSlides() {
+      const slides = document.getElementsByClassName("slide");
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      slideIndex++;
+
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+
+      setTimeout(showSlides, 3000);
+    }
+
+    showSlides();
+  </script>
+</body>
+
+</html>
